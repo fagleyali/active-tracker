@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Signup from './Pages/Signup/Signup';
 import Patients from './Component/Patient/patientInfo';
+import PatientDetails from './Component/Patient/patientDetails';
 
 function App() {
 
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route exact path='/patients' component={Patients}>
         <Typography component={Patients}  />
+        </Route>
+        <Route exact path='/patientdetails/:id' component={PatientDetails}>
+        <Typography component={PatientDetails}  />
         </Route>
       </Switch>
         

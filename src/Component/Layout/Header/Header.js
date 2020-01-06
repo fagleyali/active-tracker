@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../../../Pages/LoginPage/Login';
-import { Link } from 'react-router-dom';
+// import Link from '@material-ui/core/Link';
+import {Link} from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer';
@@ -16,13 +16,12 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import LocalHospitalTwoToneIcon from '@material-ui/icons/LocalHospitalTwoTone';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
-
 const drawerWidth = 240;
+const menuItems = [{Patient:'/patients'}, {Referral:'/referral'}, {Clinics:'/clinics'}, {Attorneys:'/attorneys'}];
+const items = menuItems.map(e=>Object.entries(e)[0])
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -98,7 +97,7 @@ const Header = (props) => {
 
 
     return (
-
+           
         <div className={classes.root}>
             <CssBaseLine />
             <AppBar
@@ -138,11 +137,16 @@ const Header = (props) => {
                 </div>
                 <Divider />
                 <List>
-                    {['Patient', 'Referral', 'Clinics', 'Attorneys'].map((text, index) => (
-                        <ListItem button key={text}>
+                    {items.map((e,i) => ( 
+                        
+                        
+                        <ListItem button >
                             <ListItemIcon>{<LocalHospitalTwoToneIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
+                            <Link to={e[1]} variant="body2">
+                            <ListItemText primary={e[0]}  />
+                            </Link>
                         </ListItem>
+                        
                     ))}
                 </List>
 
