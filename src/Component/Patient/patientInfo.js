@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MUIDataTable from "mui-datatables";
-import data from '../../Data/data';
+import data from '../../Data/data1';
 import { createBrowserHistory } from 'history';
 import { Link } from 'react-router-dom';
 
@@ -11,8 +11,8 @@ export default function MaterialTableDemo() {
       id: '',
     }
     const [state, setState] = useState(initialState)
-    const columns = ["Clinic","DOI","Last","First","Address","City","ST","ZIP","Phone","Email","DOB","Attorney","Marketer","LOP","First Visit","Visits","Last Visit","Comments","Status","Account","XRAYS","MD","MRI","ORTHO","Neuro","PPE","Others"]
-    const data1 = data.filter(e=>e[0] ==="Irving")
+    const columns = ["Clinic","DOI","Last","First","Address","City","ST","ZIP","Phone","Email","DOB","Attorney","Marketer","LOP","First Visit","Visits","Last Visit","Comments","Status","Account"]
+    const data1 = data.filter(e=>e[0] === "Irving")
     const options = {
       filterType: "dropdown",
       responsive: "scroll",
